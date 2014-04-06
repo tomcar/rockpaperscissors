@@ -19,7 +19,7 @@
 
 	<gap:plugin name="com.chariotsolutions.nfc.plugin" />
 
-
+<preference name="phonegap-version" value="3.2.0" />
 
 	<gap:platform name="android" />
 
