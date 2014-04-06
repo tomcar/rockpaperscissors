@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
-    id          = "com.phonegap.example"
+    id          = "com.chariotsolutions.nfc.rockpaperscissors"
     versionCode = "10" 
     version     = "1.0.0" >
 
@@ -19,4 +19,9 @@
 
     <!-- We'll include the Barcode plugin as an example -->
 	<gap:plugin name="com.chariotsolutions.nfc.plugin" version="0.4.5" />
+
+
+
+	<gap:platform name="android" />
+
 </widget>
