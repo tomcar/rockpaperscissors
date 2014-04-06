@@ -17,7 +17,7 @@
       tom c 
     </author>
 
-	<gap:plugin name="com.chariotsolutions.nfc.plugin" version="0.4.5" />
+	<gap:plugin name="com.chariotsolutions.nfc.plugin" />
 
 
 
