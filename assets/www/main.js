@@ -5,10 +5,7 @@ var choice = null,
 
 
 function onNfc(nfcEvent) {
-  if (!listening) {
-      return;
-  }
-
+	alert("onnfc!");
   var tag = nfcEvent.tag,records = tag.ndefMessage,result;
 //opponentsChoice = nfc.bytesToString(records[0].payload),;
 alert(nfcEvent.tag);
