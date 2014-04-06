@@ -7,7 +7,7 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>PhoneGap Example</name>
+    <name>PhoneGap nfc experiment</name>
 
     <description>
       test nfc. 
@@ -17,7 +17,6 @@
       tom c 
     </author>
 
-    <!-- We'll include the Barcode plugin as an example -->
 	<gap:plugin name="com.chariotsolutions.nfc.plugin" version="0.4.5" />
 
 
