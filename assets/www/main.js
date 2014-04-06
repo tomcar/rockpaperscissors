@@ -22,7 +22,7 @@ alert(tag + “ “ + records + “ “ + opponentsChoice);
 
 var ready = function () {
   
-  nfc.addMimeTypeListener(mimeType, onNfc, win, fail);
+  nfc.addTagDiscoveredListener(onNfc);
           
 };
 
