@@ -3,11 +3,6 @@ var choice = null,
     listening = false,
     mimeType = "game/rockpaperscissors";
 
-function stop() {
-    nfc.unshare();
-    listening = false;
-    // TODO deselect button. blur doesn't work
-}
 
 function onNfc(nfcEvent) {
   if (!listening) {
@@ -18,68 +13,14 @@ function onNfc(nfcEvent) {
       records = tag.ndefMessage,
       opponentsChoice = nfc.bytesToString(records[0].payload),
       result;
+
+alert(tag + “ “ + records + “ “ + opponentsChoice);
   
-  if (choice === opponentsChoice) {
-      result = "tie";
-  } else if (choice === "Rock" && opponentsChoice === "Scissors") {
-      result = "win";
-  } else if (choice === "Paper" && opponentsChoice === "Rock") {
-      result = "win";      
-  } else if (choice === "Scissors" && opponentsChoice === "Paper") {
-      result = "win";
-  } else {
-      result = "loose";
-  }  
-  
-  if (result === "tie") {
-      navigator.notification.alert(choice + " === " + opponentsChoice, stop, "Tie", "Meh");
-  } else if (result === "win") {
-      navigator.notification.alert(message(choice, opponentsChoice), stop, "You Win!", "OK");      
-  } else {
-      navigator.notification.alert(message(opponentsChoice, choice), stop, "You Lose", "Bummer");
-  }
   navigator.notification.vibrate(100);   
 }
 
-function message(win, lose) {
-    if (/s$/.test(win)) {
-        return win + " beat " + lose;
-    } else {
-        return win + " beats " + lose;
-    }
-}
-
-function choose(text) {
-    choice = text;
-    var ndefMessage = [
-        ndef.mimeMediaRecord(mimeType, nfc.stringToBytes(choice))
-    ];
-    
-    nfc.share(
-        ndefMessage,
-        function () { 
-           navigator.notification.vibrate(100);
-        }, function () {
-           alert("Failed to share tag.");
-        }
-    );
-    listening = true;
-}
 
 var ready = function () {
-  var buttons = document.getElementsByTagName('button');
-  
-  for (var i = 0; i < buttons.length; i++) {
-      buttons[i].addEventListener("click", function () { choose(this.innerHTML); }, false);
-  }
-      
-  function win() {
-    console.log("Listening for tags with mime type "+ mimeType);
-  }
-  
-  function fail() {
-    alert('Failed to register mime type ' + mimeType + ' with NFC');
-  }
   
   nfc.addMimeTypeListener(mimeType, onNfc, win, fail);
           
