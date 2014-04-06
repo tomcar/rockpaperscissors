@@ -9,14 +9,10 @@ function onNfc(nfcEvent) {
       return;
   }
 
-  var tag = nfcEvent.tag,
-      records = tag.ndefMessage,
-      opponentsChoice = nfc.bytesToString(records[0].payload),
-      result;
-
-alert(tag + “ “ + records + “ “ + opponentsChoice);
-  
-  navigator.notification.vibrate(100);   
+  var tag = nfcEvent.tag,records = tag.ndefMessage,result;
+//opponentsChoice = nfc.bytesToString(records[0].payload),;
+alert(nfcEvent.tag);
+//navigator.notification.vibrate(100);   
 }
 
 
