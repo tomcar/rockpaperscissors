@@ -16,6 +16,7 @@ alert(nfcEvent.tag);
 var ready = function () {
   
   nfc.addTagDiscoveredListener(onNfc);
+nfc.addNdefListener(onNfc);
           
 };
 
